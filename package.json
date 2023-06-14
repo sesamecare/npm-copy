@@ -64,7 +64,7 @@
     "postinstall": "husky install && coconfig"
   },
   "publishConfig": {
-    "registry": "http://registry.npmjs.org"
+    "registry": "https://registry.npmjs.org"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "yarn eslint --cache --fix"
