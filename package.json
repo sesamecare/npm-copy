@@ -1,5 +1,5 @@
 {
-  "name": "@sesamecare/npm-copy",
+  "name": "@sesamecare-oss/npm-copy",
   "version": "1.0.0",
   "description": "A utility to clone packages from one NPM server to another",
   "author": "Sesame <developers@sesamecare.com>",
