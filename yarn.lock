@@ -873,9 +873,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sesamecare/npm-copy@workspace:.":
+"@sesamecare-oss/npm-copy@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@sesamecare/npm-copy@workspace:."
+  resolution: "@sesamecare-oss/npm-copy@workspace:."
   dependencies:
     "@openapi-typescript-infra/coconfig": ^3.0.2
     "@types/debug": ^4.1.8
