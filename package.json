@@ -1,8 +1,8 @@
 {
-  "name": "npm-copy",
-  "version": "3.0.0",
+  "name": "@sesamecare/npm-copy",
+  "version": "1.0.0",
   "description": "A utility to clone packages from one NPM server to another",
-  "author": "Good Eggs <open-source@goodeggs.com>",
+  "author": "Sesame <developers@sesamecare.com>",
   "contributors": [
     "Bob Zoller <bob@zoller.us>",
     "Max Metral <developers@pyralis.com>"
@@ -11,8 +11,8 @@
   "keywords": [
     "npm"
   ],
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "bin": "./build/bin/npm-copy.js",
   "repository": {
     "type": "git",
@@ -51,7 +51,7 @@
   },
   "scripts": {
     "test": "jest",
-    "build": "tsc -p tsconfig.build.json",
+    "build": "tsc --skipLibCheck -p tsconfig.build.json && yarn dlx glob-chmod 755 build/bin/*",
     "clean": "yarn dlx rimraf ./build",
     "lint": "eslint src",
     "prepack": "pinst --disable",
@@ -60,6 +60,14 @@
   },
   "publishConfig": {
     "registry": "http://registry.npmjs.org"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "yarn eslint --cache --fix"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
   },
   "packageManager": "yarn@3.6.0",
   "dependencies": {

@@ -20,7 +20,7 @@ export async function getVersionInfo(registry: string, auth: Partial<AuthOptions
     registry,
     forceAuth: auth,
   });
-  const versions = Object.entries(response.time as Record<string, unknown>).sort(([keyA, timeA], [keyB, timeB]) => {
+  const versions = Object.entries(response.time as Record<string, unknown>).sort(([, timeA], [, timeB]) => {
     return Date.parse(timeA as string) - Date.parse(timeB as string);
   }).map(([key]) => key);
   return {
@@ -56,7 +56,7 @@ export async function copyModule({ from, to, module, verbose, limit }: {
 
   const toInfo = await getVersionInfo(toUrl, toAuth, module).catch((error) => {
     if (error.statusCode === 404) {
-      return { versions: [] };
+      return { versions: [], response: {} };
     }
     throw error;
   });

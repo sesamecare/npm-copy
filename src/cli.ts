@@ -1,4 +1,5 @@
 import minimist from 'minimist';
+
 import { copyModule } from './index';
 
 interface Argv {
