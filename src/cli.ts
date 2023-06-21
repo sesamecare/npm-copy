@@ -13,6 +13,7 @@ interface Argv {
   'to-password'?: string;
   _: string[];
   verbose?: boolean;
+  force?: boolean;
   limit?: number;
 }
 
@@ -22,7 +23,7 @@ function usage() {
 
 export async function cli(argvSliced: string[]) {
   const argv = minimist<Argv>(argvSliced, {
-    boolean: ['verbose'],
+    boolean: ['verbose', 'force'],
   });
   const from = {
     url: argv.from,
@@ -44,6 +45,7 @@ export async function cli(argvSliced: string[]) {
   const opts = {
     verbose: argv.verbose || false,
     limit: argv.limit,
+    force: argv.force,
   };
 
   // Run in series so the logs are more intelligible
