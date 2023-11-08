@@ -16,7 +16,7 @@ export interface RepoSpec extends AuthOptions {
 }
 
 export async function getVersionInfo(registry: string, auth: Partial<AuthOptions>, module: string): Promise<VersionInfo> {
-  const response = await registryFetch.json(`/${module}`, {
+  const response = await registryFetch.json(`/${encodeURIComponent(module)}`, {
     registry,
     forceAuth: auth,
   });
